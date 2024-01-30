@@ -1,0 +1,53 @@
+
+<% include('../layouts/header.ejs') %>
+
+<style>
+  body {
+    background-color: #8effa9; 
+  }
+
+  .center-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+  }
+
+  .login-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  }
+</style>
+
+<div class="container center-container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 mt-5 login-form">
+      <h1 class="text-center">Edit User</h1>
+
+   
+
+      <form action="" method="POST">
+        <input type="name" class="form-control mb-3" name="name"  pattern="^[A-Za-z][A-Za-z\s]*[A-Za-z]$" placeholder="Enter Name" value="<%= user.name %>" required>
+        <br><br>
+        <input type="email" class="form-control mb-3" name="email" placeholder="Enter Email" value="<%= user.email %>" required>
+        <input type="Number" class="form-control mb-3" name="mobile" placeholder="Enter Mobile Number" value="<%= user.mobile %>" required>
+        <br><br>
+        <br><br>
+        <label>Verified</label>
+        <input type="radio" name="verify" value="1" <% if(user.is_varified ==1 ) {%> checked <%} %> >
+        <br><br>
+        <label>Unverified</label>
+        <input type="radio" name="verify" value="0" <% if(user.is_varified ==0 ) {%> checked <%} %> >
+        <br><br>
+        <input type="submit" class="btn btn-success" value="Update User">
+        <br><br>
+        <input type="hidden" name="id" value="<%=user._id %>">
+      </form>
+      <a href="/admin/home">Go Back To Dashboard</a>
+    </div>
+  </div>
+</div>
+
+<% include('../layouts/footer.ejs') %>

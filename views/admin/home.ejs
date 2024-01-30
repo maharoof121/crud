@@ -1,0 +1,55 @@
+
+<% include('../layouts/header.ejs') %>
+
+<style>
+    body {
+        background-color: #e5d2f6; 
+        color: rgb(11, 10, 10);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        flex-direction: column;
+    }
+
+    h1 {
+        margin-top: 20px;
+    }
+
+    table {
+        margin-top: 20px;
+        text-align: left;
+    }
+
+    img {
+        border-radius: 5px; 
+    }
+
+    a {
+        color: rgb(15, 14, 14); 
+    }
+</style>
+
+<h1>Welcome, <%= admin.name %></h1>
+
+<a href="/admin/dashboard">Dashboard</a>
+
+<table>
+    <tr>
+        <td><img src="/userImages/<%= admin.image %>" width="100px" height="100px" alt="<%= admin.image %>"></td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td><%= admin.email %></td>
+    </tr>
+    <tr>
+        <td>Mobile</td>
+        <td><%= admin.mobile %></td>
+    </tr>
+</table>
+<form action="/admin/logout" method="post">
+    <button type="submit">Logout</button>
+</form>
+<!-- <a href="admin/logout">Logout</a> -->
+
+<% include('../layouts/header.ejs') %>

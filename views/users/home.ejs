@@ -1,0 +1,31 @@
+
+<% include('../layouts/header.ejs') %>
+
+<div class="container-fluid" style="background-color: #ccf5d6; height: 100vh; display: flex; align-items: center; justify-content: center;">
+    <div class="container text-center text-light">
+        <h1>Welcome <%= user.name %></h1>
+
+        <table class="table table-bordered table-light" style="width: 50%;">
+            <tr>
+                <td><img src="userImages/<%= user.image %>" class="img-fluid" alt="<%= user.image %>" height="100px" width="100px"></td>       </tr>
+            <tr>
+                <td>Email</td>
+                <td><%= user.email %></td>
+            </tr>
+            <tr>
+                <td>Mobile Number</td>
+                <td><%= user.mobile %></td>
+            </tr>
+            <tr>
+                <td>Verified</td>
+                <td>Yes</td>
+            </tr>
+        </table>
+
+        <a href="/edit?id=<%= user._id %>" class="btn btn-warning"><input type="submit"value="Edit Profile"></a>
+
+        <a href="/logout" class="btn btn-danger"><input type="submit"value="Log out"></a>
+    </div>
+</div>
+
+<% include('../layouts/footer.ejs') %>

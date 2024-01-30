@@ -1,0 +1,53 @@
+
+<style>
+    body {
+        background: linear-gradient(to right, #4A148C, #880E4F); 
+        color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        background-color: rgba(255, 255, 255, 0.8); 
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 400px; 
+        width: 100%;
+    }
+
+    img {
+        max-width: 100px;
+        max-height: 100px;
+        margin-bottom: 20px; 
+    }
+</style>
+
+
+<div class="container">
+    <% include('../layouts/header.ejs')  %>
+
+    <img src="userImages/<%= user.image %>" alt="<%= user.image %>">
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image">
+        <input type="hidden" name="user_id" value="<%= user._id %>">
+        <br><br>
+        <label>name</label><br>
+        <input type="text" class="form-control"  pattern="^[A-Za-z][A-Za-z\s]*[A-Za-z]$" name="name" value="<%= user.name %>" placeholder="Enter Name" required>
+        <br><br>
+        <label>email</label><br>
+        <input type="email" class="form-control" name="email" value="<%= user.email %>" placeholder="Enter email" required>
+        <br><br>
+        <label>mobile</label><br>
+        <input type="text" class="form-control" name="mobile" value="<%= user.mobile %>" placeholder="Enter Mobile" required>
+        <br><br>
+
+        <input type="submit" class="btn btn-primary" value="Update profile">
+    </form>
+
+    <% include('../layouts/footer.ejs')  %>
+</div>
+

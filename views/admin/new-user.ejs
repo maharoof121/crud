@@ -1,0 +1,32 @@
+
+<% include('../layouts/header.ejs')  %>
+
+<div style="background-color: lightgreen; height: 100vh; display: flex; justify-content: center; align-items: center;">
+    <div style="width: 80%; max-width: 400px; padding: 20px; background-color: blue; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <h1>Add New User</h1>
+
+        <form action="" method="post" enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="Name" pattern="^[A-Za-z][A-Za-z\s]*[A-Za-z]$" class="form-control mb-2" required>
+            <br><br>
+            <input type="email" name="email" placeholder="Email" class="form-control mb-2" required>
+            <br><br>
+            <input type="number" name="mobile" placeholder="Mobile Number" class="form-control mb-2" required>
+            <br><br>
+            <input type="file" name="image" class="form-control mb-2" required>
+            <br><br>
+            <input type="password" name="password" placeholder="Enter Password" class="form-control mb-2" required>
+            <br><br>
+            <input type="submit" value="Add User" class="btn btn-primary">
+        </form>
+
+        <% if (typeof message !== 'undefined') { %>
+            <div style="color: red; margin-top: 10px;">
+                <p><%= message %></p>
+            </div>
+        <% } %>
+
+        <a href="/admin/dashboard" class="btn btn-secondary mt-2" style="background-color: red; color: white;">Go Back</a>
+    </div>
+</div>
+
+<% include('../layouts/footer.ejs')  %>
